@@ -4,7 +4,6 @@
 a simple Python app which fetch a list of movies from ghibliapi
 
 ## Usage
-***
 * Make sure you have the latest version of python3 installed
 * Then run the following command (for unix-like system)
     ```
