@@ -11,9 +11,9 @@ def get_all_movies():
         response = requests.get("https://ghibliapi.herokuapp.com/films")
         response.raise_for_status()
     except HTTPError as he:
-        print('HTTP error: {he}')
+        print("HTTP error: {he}")
     except Exception as e:
-        print(f'An error occured: {e}')
+        print(f"An error occured: {e}")
     else:
         all_movies = response.json()
     return all_movies

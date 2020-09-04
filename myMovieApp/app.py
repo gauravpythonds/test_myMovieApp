@@ -10,15 +10,11 @@ import people_helper
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
-    config = {
-        "DEBUG": True,
-        "CACHE_TYPE": "simple",
-        "CACHE_DEFAULT_TIMEOUT": 60
-    }
+    config = {"DEBUG": True, "CACHE_TYPE": "simple", "CACHE_DEFAULT_TIMEOUT": 60}
     app.config.from_mapping(config)
     cache = Cache(app)
 
-    @app.route("/movies/", methods=['GET'])
+    @app.route("/movies/", methods=["GET"])
     @cache.cached(timeout=60)
     def get_movies_people():
         movies = movies_helper.get_all_movies()
@@ -28,6 +24,6 @@ def create_app():
         if all_people is None:
             return "Error while fetching people"
         movies_with_people = movies_helper.add_people_field(movies, all_people)
-        return render_template('movies.html', films=movies_with_people)
+        return render_template("movies.html", films=movies_with_people)
 
     return app
