@@ -5,6 +5,7 @@ python3 -m pip install --upgrade pip
 
 if [ ! -d $VENV ]
 then
+	pip3 install virtualenv
 	python3 -m venv venv
 fi
 
