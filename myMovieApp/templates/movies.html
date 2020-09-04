@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My MovieApp</title>
+</head>
+<body>
+    <ul id="films">
+    {% for item in films %}
+        <li><span>Title : </span><a href="{{ item.url }}">{{ item.title }}</a></li>
+		<span>People : </span>
+		{% for p in item.people %}
+			{{ p }}
+			{{ ", " if not loop.last }}
+		{% else %}
+			<span>No information available.</span>
+		{% endfor %}
+		<hr>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>
